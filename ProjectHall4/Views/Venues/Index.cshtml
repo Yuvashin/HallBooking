@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.VenueName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.MaxCapity)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.VenuePrice)
         </th>
         <th></th>
@@ -24,6 +27,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.VenueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxCapity)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.VenuePrice)

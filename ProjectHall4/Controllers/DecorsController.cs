@@ -10,6 +10,7 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class DecorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

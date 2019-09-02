@@ -10,8 +10,10 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class VenuesController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Venues
@@ -46,7 +48,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VenueID,VenueName,VenuePrice")] Venue venue)
+        public ActionResult Create([Bind(Include = "VenueID,VenueName,MaxCapity,VenuePrice")] Venue venue)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +80,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VenueID,VenueName,VenuePrice")] Venue venue)
+        public ActionResult Edit([Bind(Include = "VenueID,VenueName,MaxCapity,VenuePrice")] Venue venue)
         {
             if (ModelState.IsValid)
             {

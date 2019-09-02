@@ -45,6 +45,7 @@ namespace ProjectHall4.Models
 
         public decimal Total_Price { get; set; }
 
+        [DisplayName("Decor Options")]
         public virtual Decor Decor { get; set; }
         public int DecorID { get; set; }
 
@@ -59,37 +60,37 @@ namespace ProjectHall4.Models
         public decimal ChildrenFood_Price { get; set; }
 
         public decimal Venue_Price { get; set; }
+        private ApplicationDbContext db = new ApplicationDbContext();
 
 
-
-       /* public decimal GetDecorPrice()
+        public decimal GetDecorPrice()
         {
-            OurDbContext db = new OurDbContext();
-            var decorprice = (from ac in db.decors
+          
+            var decorprice = (from ac in db.Decors
                               where ac.DecorID == DecorID
                               select ac.DecorPrice).Single();
             return Convert.ToDecimal(decorprice * numbOfGuests);
         }
         public decimal GetCateringPrice()
         {
-            OurDbContext db = new OurDbContext();
-            var cateringprice = (from ac in db.cateringAdults
+            
+            var cateringprice = (from ac in db.Adults
                                  where ac.AdultID == AdultID
                                  select ac.CateringPrice).Single();
             return Convert.ToDecimal(cateringprice * numbOfGuests);
         }
         public decimal GetVenuePrice()
         {
-            OurDbContext db = new OurDbContext();
-            var venueprice = (from ac in db.venues
+            
+            var venueprice = (from ac in db.Venues
                               where ac.VenueID == VenueID
                               select ac.VenuePrice).Single();
             return Convert.ToDecimal(venueprice);
         }
         public decimal GetChildrenCateringPice()
         {
-            OurDbContext db = new OurDbContext();
-            var childrenCateringPrice = (from ac in db.cateringChildrens
+            
+            var childrenCateringPrice = (from ac in db.Children
                                          where ac.ChildrenID == ChildrenID
                                          select ac.ChildrenFoodPrice).Single();
             return Convert.ToDecimal(childrenCateringPrice * numbOfChildren);
@@ -99,6 +100,6 @@ namespace ProjectHall4.Models
             decimal total = 0;
             total = GetDecorPrice() + GetCateringPrice() + GetVenuePrice();
             return total;
-        }*/
+        }
     }
 }

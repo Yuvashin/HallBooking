@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class RoleController : Controller
     {
         // GET: Role

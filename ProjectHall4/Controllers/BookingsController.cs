@@ -9,7 +9,9 @@ using System.Web.Mvc;
 using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
+
 {
+    [Authorize]
     public class BookingsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -45,6 +47,14 @@ namespace ProjectHall4.Controllers
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName");
             return View();
         }
+        public IEnumerable<SelectListItem> GetVenueDetails()
+        {
+            IEnumerable<SelectListItem> items = db.Venues.Select(c => new SelectListItem
+            {
+                Text = c.VenueName+c.MaxCapity
+            });
+            return items;
+        }
 
         // POST: Bookings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -55,6 +65,11 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
+                booking.Catering_Price = booking.GetCateringPrice();
+                booking.Decor_Price = booking.GetDecorPrice();
+                booking.Venue_Price = booking.GetVenuePrice();
+                booking.ChildrenFood_Price = booking.GetChildrenCateringPice();
+                booking.Total_Price = booking.TotPrice();
                 db.Bookings.Add(booking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
