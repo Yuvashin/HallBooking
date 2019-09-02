@@ -1,0 +1,117 @@
+﻿@model IEnumerable<ProjectHall4.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adult.CateringType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Children.ChildrenFood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decor.DecorColourOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue.VenueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numbOfGuests)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numbOfChildren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cateringPackage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decorpackage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decor_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Catering_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildrenFood_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue_Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adult.CateringType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Children.ChildrenFood)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Decor.DecorColourOne)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue.VenueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numbOfGuests)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numbOfChildren)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cateringPackage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decorpackage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Decor_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Catering_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildrenFood_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue_Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingID })
+        </td>
+    </tr>
+}
+
+</table>

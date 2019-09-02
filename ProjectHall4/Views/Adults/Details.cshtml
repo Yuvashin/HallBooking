@@ -1,0 +1,34 @@
+﻿@model ProjectHall4.Models.Adult
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Adult</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdultID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
