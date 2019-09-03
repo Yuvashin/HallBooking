@@ -17,7 +17,7 @@ namespace ProjectHall4.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -170,6 +170,30 @@ namespace ProjectHall4.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+      
+        [HttpGet]
+        public ActionResult RegisterRole()
+        {
+            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+            ViewBag.UserName = new SelectList(db.Users.ToList(), "UserName", "UserName");
+            return View();
+        }
+
+     
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<ActionResult> RegisterRole(RegisterViewModel model, ApplicationUser user,string UserName)
+        {
+            var userId = db.Users.Where(x => x.UserName == user.UserName).Select(s => s.Id);
+            string updateID = "";
+
+            foreach (var item in userId)
+            {
+                updateID = item.ToString();
+            }
+            await this.UserManager.AddToRoleAsync(updateID, "Admin");
+            return RedirectToAction("Index", "Home");
         }
 
         //

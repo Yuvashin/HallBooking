@@ -167,11 +167,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Business\FileUpload.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdultsController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\DecorsController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -187,6 +189,10 @@
     <Compile Include="Migrations\201909021119214_b.Designer.cs">
       <DependentUpon>201909021119214_b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909022338318_c.cs" />
+    <Compile Include="Migrations\201909022338318_c.Designer.cs">
+      <DependentUpon>201909022338318_c.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBusiness.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -194,6 +200,8 @@
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Children.cs" />
     <Compile Include="Models\Decor.cs" />
+    <Compile Include="Models\FileUploadModel.cs" />
+    <Compile Include="Models\FileUploadVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Venue.cs" />
@@ -222,6 +230,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Style\AdminCardStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -282,6 +291,15 @@
     <Content Include="Views\Venues\Details.cshtml" />
     <Content Include="Views\Venues\Edit.cshtml" />
     <Content Include="Views\Venues\Index.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Account\RegisterRole.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\Packages.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadProcess.cshtml" />
+    <Content Include="Views\FileUpload\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909021119214_b.resx">
       <DependentUpon>201909021119214_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909022338318_c.resx">
+      <DependentUpon>201909022338318_c.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

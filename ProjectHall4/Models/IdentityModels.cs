@@ -30,6 +30,7 @@ namespace ProjectHall4.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<ProjectHall4.Models.FileUploadModel> fileUploadModel { get; set; }
         public System.Data.Entity.DbSet<ProjectHall4.Models.Booking> Bookings { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Adult> Adults { get; set; }

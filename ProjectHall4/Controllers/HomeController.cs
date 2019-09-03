@@ -26,5 +26,25 @@ namespace ProjectHall4.Controllers
 
             return View();
         }
+        [Authorize]//change to admin
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult Gallery()
+        {
+            return View();
+        }
+
+        public ActionResult Packages()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<section>
+    @Html.ActionLink("Create Role", "Create", "Role")
+</section>
+<br />
+<section>
+    @Html.ActionLink("Assign Role To User", "RegisterRole", "Account")
+</section>
+<div>
+    <table>
+
+        <tr>
+            <th>
+                Role Name
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
