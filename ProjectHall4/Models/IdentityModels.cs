@@ -40,5 +40,7 @@ namespace ProjectHall4.Models
         public System.Data.Entity.DbSet<ProjectHall4.Models.Decor> Decors { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Venue> Venues { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectHall4.Models.Review> Reviews { get; set; }
     }
 }

@@ -73,6 +73,7 @@
             margin: 0 auto;
             text-align: center;
             width: 100%;
+            transform: rotate(90deg);
         }
         .gallery li {
             width: 21.7391304348%;
@@ -530,9 +531,21 @@ png images background
                     </a>
                 </li>
             </ul>
-            <hr>
-            <div class='reviews'>
-                <!-- Panel one -->
+        <hr>
+            @{
+                Html.RenderAction("_Reviews", "Reviews");
+            }
+           
+            @*<div class='reviews'>
+              
+                <div class='panel'>
+                    <img src='http://www.designbolts.com/wp-content/uploads/2014/01/Superman-Flat-Design.png'>
+                    <p>
+                        Some shit about how good the event was
+                        Have a rating scale.
+                    </p>
+                    <h7>Person Name</h7>
+                </div>
                 <div class='panel'>
                     <img src='http://www.designbolts.com/wp-content/uploads/2014/01/Superman-Flat-Design.png'>
                     <p>
@@ -542,8 +555,7 @@ png images background
                     <h7>Person Name</h7>
                 </div>
                
-               
-            </div>
+            </div>*@
         </main>
     </div>
 
