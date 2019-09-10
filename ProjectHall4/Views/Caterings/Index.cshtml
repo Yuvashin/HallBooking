@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjectHall4.Models.Catering>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringPackage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CateringPackage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CateringPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CateringID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CateringID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CateringID })
+        </td>
+    </tr>
+}
+
+</table>

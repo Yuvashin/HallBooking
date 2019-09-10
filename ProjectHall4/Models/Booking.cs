@@ -85,7 +85,7 @@ namespace ProjectHall4.Models
             var venueprice = (from ac in db.Venues
                               where ac.VenueID == VenueID
                               select ac.VenuePrice).Single();
-            return Convert.ToDecimal(venueprice);
+           return Convert.ToDecimal(venueprice);
         }
         public decimal GetChildrenCateringPice()
         {

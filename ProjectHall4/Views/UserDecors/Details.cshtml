@@ -1,0 +1,66 @@
+﻿@model ProjectHall4.Models.UserDecor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserDecor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking2.OccasionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking2.OccasionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Decor.DecorColourOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Decor.DecorColourOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalLoginConfirmationViewModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExternalLoginConfirmationViewModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorNumberGuest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorNumberGuest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserDecorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

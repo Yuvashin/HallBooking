@@ -171,7 +171,9 @@ namespace ProjectHall4.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-      
+
+
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult RegisterRole()
         {
@@ -183,6 +185,7 @@ namespace ProjectHall4.Controllers
      
         [ValidateAntiForgeryToken]
         [HttpPost]
+    
         public async Task<ActionResult> RegisterRole(RegisterViewModel model, ApplicationUser user,string UserName)
         {
             var userId = db.Users.Where(x => x.UserName == user.UserName).Select(s => s.Id);

@@ -1,0 +1,72 @@
+﻿@model ProjectHall4.Models.UserDecor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserDecor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking2.OccasionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking2.OccasionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Decor.DecorColourOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Decor.DecorColourOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalLoginConfirmationViewModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExternalLoginConfirmationViewModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecorNumberGuest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecorNumberGuest)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
