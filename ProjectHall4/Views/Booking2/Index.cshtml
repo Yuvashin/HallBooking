@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProjectHall4.Models.Booking2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue.VenueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalNumberOfGuests)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OccasionType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.baseVenuePrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue.VenueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalNumberOfGuests)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OccasionType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.baseVenuePrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Booking2ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Booking2ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Booking2ID })
+        </td>
+    </tr>
+}
+
+</table>

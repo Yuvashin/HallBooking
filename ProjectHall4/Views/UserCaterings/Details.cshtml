@@ -1,0 +1,66 @@
+﻿@model ProjectHall4.Models.UserCatering
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserCatering</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking2.OccasionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking2.OccasionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catering.CateringPackage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catering.CateringPackage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExternalLoginConfirmationViewModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExternalLoginConfirmationViewModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CateringNumberGuest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CateringNumberGuest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserCateringID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
