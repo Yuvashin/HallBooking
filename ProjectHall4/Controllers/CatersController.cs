@@ -10,107 +10,107 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
-    public class CateringsController : Controller
+    public class CatersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Caterings
+        // GET: Caters
         public ActionResult Index()
         {
-            return View(db.Caterings.ToList());
+            return View(db.Caters.ToList());
         }
 
-        // GET: Caterings/Details/5
+        // GET: Caters/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Catering catering = db.Caterings.Find(id);
-            if (catering == null)
+            Cater cater = db.Caters.Find(id);
+            if (cater == null)
             {
                 return HttpNotFound();
             }
-            return View(catering);
+            return View(cater);
         }
 
-        // GET: Caterings/Create
+        // GET: Caters/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Caterings/Create
+        // POST: Caters/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CateringID,CateringPackage,CateringPrice")] Catering catering)
+        public ActionResult Create([Bind(Include = "CateringID,CateringPackage,CateringPrice")] Cater cater)
         {
             if (ModelState.IsValid)
             {
-                db.Caterings.Add(catering);
+                db.Caters.Add(cater);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(catering);
+            return View(cater);
         }
 
-        // GET: Caterings/Edit/5
+        // GET: Caters/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Catering catering = db.Caterings.Find(id);
-            if (catering == null)
+            Cater cater = db.Caters.Find(id);
+            if (cater == null)
             {
                 return HttpNotFound();
             }
-            return View(catering);
+            return View(cater);
         }
 
-        // POST: Caterings/Edit/5
+        // POST: Caters/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CateringID,CateringPackage,CateringPrice")] Catering catering)
+        public ActionResult Edit([Bind(Include = "CateringID,CateringPackage,CateringPrice")] Cater cater)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(catering).State = EntityState.Modified;
+                db.Entry(cater).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(catering);
+            return View(cater);
         }
 
-        // GET: Caterings/Delete/5
+        // GET: Caters/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Catering catering = db.Caterings.Find(id);
-            if (catering == null)
+            Cater cater = db.Caters.Find(id);
+            if (cater == null)
             {
                 return HttpNotFound();
             }
-            return View(catering);
+            return View(cater);
         }
 
-        // POST: Caterings/Delete/5
+        // POST: Caters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Catering catering = db.Caterings.Find(id);
-            db.Caterings.Remove(catering);
+            Cater cater = db.Caters.Find(id);
+            db.Caters.Remove(cater);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

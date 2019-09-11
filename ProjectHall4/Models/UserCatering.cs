@@ -16,7 +16,7 @@ namespace ProjectHall4.Models
         public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
         public string Email { get; set; }
 
-        public virtual Catering Catering { get; set; }
+        public virtual Cater Catering { get; set; }
         public int CateringID { get; set; }
 
         public virtual Booking2 Booking2 { get; set; }
@@ -34,12 +34,12 @@ namespace ProjectHall4.Models
                                select ac.TotalNumberOfGuests).Single();
             return Convert.ToInt16(numofguests);
         }
-        public decimal GetCateringPrice()
+      /*  public decimal GetCateringPrice()
         {
             var cateringprice = (from ac in db.Caterings
                               where ac.CateringID== CateringID
                               select ac.CateringPrice).Single();
             return Convert.ToDecimal(cateringprice * GetNumbOfGuests());
-        }
+        }*/
     }
 }

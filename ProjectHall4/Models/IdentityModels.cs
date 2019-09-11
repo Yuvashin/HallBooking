@@ -49,11 +49,15 @@ namespace ProjectHall4.Models
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.UserCatering> UserCaterings { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectHall4.Models.Catering> Caterings { get; set; }
+      //  public System.Data.Entity.DbSet<ProjectHall4.Models.Catering> Caterings { get; set; }
 
         //public System.Data.Entity.DbSet<ProjectHall4.Models.TotalPrices> TotalPrices { get; set; }
        public System.Data.Entity.DbSet<ProjectHall4.Models.TotalPrices2> TotalPrices2s { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Test> Tests { get; set; }
+
+        //public System.Data.Entity.DbSet<ProjectHall4.Models.Catering> Caterings { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectHall4.Models.Cater> Caters { get; set; }
     }
 }

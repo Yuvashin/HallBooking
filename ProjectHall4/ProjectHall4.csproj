@@ -261,7 +261,7 @@
     <Compile Include="Business\FileUpload.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Booking2Controller.cs" />
-    <Compile Include="Controllers\CateringsController.cs" />
+    <Compile Include="Controllers\CatersController.cs" />
     <Compile Include="Controllers\DecorsController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -323,11 +323,27 @@
     <Compile Include="Migrations\201909111508252_k.Designer.cs">
       <DependentUpon>201909111508252_k.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909111746097_l.cs" />
+    <Compile Include="Migrations\201909111746097_l.Designer.cs">
+      <DependentUpon>201909111746097_l.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909111812493_m.cs" />
+    <Compile Include="Migrations\201909111812493_m.Designer.cs">
+      <DependentUpon>201909111812493_m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909111826296_m1.cs" />
+    <Compile Include="Migrations\201909111826296_m1.Designer.cs">
+      <DependentUpon>201909111826296_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909111856065_n.cs" />
+    <Compile Include="Migrations\201909111856065_n.Designer.cs">
+      <DependentUpon>201909111856065_n.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBusiness.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking2.cs" />
-    <Compile Include="Models\Catering.cs" />
+    <Compile Include="Models\Cater.cs" />
     <Compile Include="Models\Decor.cs" />
     <Compile Include="Models\FileUploadModel.cs" />
     <Compile Include="Models\FileUploadVm.cs" />
@@ -443,11 +459,6 @@
     <Content Include="Views\UserDecors\Details.cshtml" />
     <Content Include="Views\UserDecors\Edit.cshtml" />
     <Content Include="Views\UserDecors\Index.cshtml" />
-    <Content Include="Views\Caterings\Create.cshtml" />
-    <Content Include="Views\Caterings\Delete.cshtml" />
-    <Content Include="Views\Caterings\Details.cshtml" />
-    <Content Include="Views\Caterings\Edit.cshtml" />
-    <Content Include="Views\Caterings\Index.cshtml" />
     <Content Include="Views\TotalPrices2\Create.cshtml" />
     <Content Include="Views\TotalPrices2\Delete.cshtml" />
     <Content Include="Views\TotalPrices2\Details.cshtml" />
@@ -463,6 +474,11 @@
     <Content Include="Views\Tests\Details.cshtml" />
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Caters\Create.cshtml" />
+    <Content Include="Views\Caters\Delete.cshtml" />
+    <Content Include="Views\Caters\Details.cshtml" />
+    <Content Include="Views\Caters\Edit.cshtml" />
+    <Content Include="Views\Caters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -516,6 +532,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909111508252_k.resx">
       <DependentUpon>201909111508252_k.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909111746097_l.resx">
+      <DependentUpon>201909111746097_l.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909111812493_m.resx">
+      <DependentUpon>201909111812493_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909111826296_m1.resx">
+      <DependentUpon>201909111826296_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909111856065_n.resx">
+      <DependentUpon>201909111856065_n.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
