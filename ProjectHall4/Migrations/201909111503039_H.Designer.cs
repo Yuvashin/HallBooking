@@ -7,13 +7,13 @@ namespace ProjectHall4.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class f : IMigrationMetadata
+    public sealed partial class H : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(f));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(H));
         
         string IMigrationMetadata.Id
         {
-            get { return "201909101028384_f"; }
+            get { return "201909111503039_H"; }
         }
         
         string IMigrationMetadata.Source

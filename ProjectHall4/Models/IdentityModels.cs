@@ -1,8 +1,10 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectHall4.Models
 {
@@ -31,11 +33,11 @@ namespace ProjectHall4.Models
         }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.FileUploadModel> fileUploadModel { get; set; }
-        public System.Data.Entity.DbSet<ProjectHall4.Models.Booking> Bookings { get; set; }
+       // public System.Data.Entity.DbSet<ProjectHall4.Models.Booking> Bookings { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectHall4.Models.Adult> Adults { get; set; }
+        //public System.Data.Entity.DbSet<ProjectHall4.Models.Adult> Adults { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectHall4.Models.Children> Children { get; set; }
+       // public System.Data.Entity.DbSet<ProjectHall4.Models.Children> Children { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Decor> Decors { get; set; }
 
@@ -50,6 +52,8 @@ namespace ProjectHall4.Models
         public System.Data.Entity.DbSet<ProjectHall4.Models.Catering> Caterings { get; set; }
 
         //public System.Data.Entity.DbSet<ProjectHall4.Models.TotalPrices> TotalPrices { get; set; }
-        public System.Data.Entity.DbSet<ProjectHall4.Models.TotalPrices2> TotalPrices2s { get; set; }
+       public System.Data.Entity.DbSet<ProjectHall4.Models.TotalPrices2> TotalPrices2s { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectHall4.Models.Test> Tests { get; set; }
     }
 }

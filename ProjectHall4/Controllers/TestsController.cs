@@ -10,108 +10,107 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
-    [Authorize]
-    public class ChildrenController : Controller
+    public class TestsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Children
+        // GET: Tests
         public ActionResult Index()
         {
-            return View(db.Children.ToList());
+            return View(db.Tests.ToList());
         }
 
-        // GET: Children/Details/5
+        // GET: Tests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Children children = db.Children.Find(id);
-            if (children == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(children);
+            return View(test);
         }
 
-        // GET: Children/Create
+        // GET: Tests/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Children/Create
+        // POST: Tests/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ChildrenID,ChildrenFood,ChildrenFoodPrice")] Children children)
+        public ActionResult Create([Bind(Include = "id,Name")] Test test)
         {
             if (ModelState.IsValid)
             {
-                db.Children.Add(children);
+                db.Tests.Add(test);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(children);
+            return View(test);
         }
 
-        // GET: Children/Edit/5
+        // GET: Tests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Children children = db.Children.Find(id);
-            if (children == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(children);
+            return View(test);
         }
 
-        // POST: Children/Edit/5
+        // POST: Tests/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ChildrenID,ChildrenFood,ChildrenFoodPrice")] Children children)
+        public ActionResult Edit([Bind(Include = "id,Name")] Test test)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(children).State = EntityState.Modified;
+                db.Entry(test).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(children);
+            return View(test);
         }
 
-        // GET: Children/Delete/5
+        // GET: Tests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Children children = db.Children.Find(id);
-            if (children == null)
+            Test test = db.Tests.Find(id);
+            if (test == null)
             {
                 return HttpNotFound();
             }
-            return View(children);
+            return View(test);
         }
 
-        // POST: Children/Delete/5
+        // POST: Tests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Children children = db.Children.Find(id);
-            db.Children.Remove(children);
+            Test test = db.Tests.Find(id);
+            db.Tests.Remove(test);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

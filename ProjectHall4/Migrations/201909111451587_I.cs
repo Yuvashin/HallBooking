@@ -3,7 +3,7 @@ namespace ProjectHall4.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class e : DbMigration
+    public partial class I : DbMigration
     {
         public override void Up()
         {

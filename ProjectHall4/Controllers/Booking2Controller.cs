@@ -52,8 +52,6 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
-                //add validation for calender
-                booking2.baseVenuePrice = booking2.calcVenue();
                 db.Booking2s.Add(booking2);
                 db.SaveChanges();
                 return RedirectToAction("Index");

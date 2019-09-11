@@ -14,18 +14,23 @@ namespace ProjectHall4.Models
         [Key]
         public int UserDecorID { get; set; }
 
-        public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
+       // public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
         public string Email { get; set; }
         
-        public virtual Decor Decor { get; set; }
+       
         public int DecorID { get; set; }
+        public virtual Decor Decor { get; set; }
 
-        public virtual Booking2 Booking2 { get; set; }
+        
         public int Booking2ID { get; set; }
+        public virtual Booking2 Booking2 { get; set; }
 
         public decimal DecorCost { get; set; }
 
         public int DecorNumberGuest { get; set; }
+
+
+
 
         private ApplicationDbContext db = new ApplicationDbContext();
 

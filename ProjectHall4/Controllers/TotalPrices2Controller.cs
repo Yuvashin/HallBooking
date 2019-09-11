@@ -10,108 +10,116 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
-    [Authorize]
-    public class AdultsController : Controller
+    public class TotalPrices2Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Adults
+        // GET: TotalPrices2
         public ActionResult Index()
         {
-            return View(db.Adults.ToList());
+            var totalPrices2s = db.TotalPrices2s.Include(t => t.UserDecor).Include(t => t.Venue);
+            return View(totalPrices2s.ToList());
         }
 
-        // GET: Adults/Details/5
+        // GET: TotalPrices2/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adult adult = db.Adults.Find(id);
-            if (adult == null)
+            TotalPrices2 totalPrices2 = db.TotalPrices2s.Find(id);
+            if (totalPrices2 == null)
             {
                 return HttpNotFound();
             }
-            return View(adult);
+            return View(totalPrices2);
         }
 
-        // GET: Adults/Create
+        // GET: TotalPrices2/Create
         public ActionResult Create()
         {
+            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email");
+            ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName");
             return View();
         }
 
-        // POST: Adults/Create
+        // POST: TotalPrices2/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdultID,CateringType,CateringPrice")] Adult adult)
+        public ActionResult Create([Bind(Include = "TotalPrices2ID,UserDecorID,VenueID")] TotalPrices2 totalPrices2)
         {
             if (ModelState.IsValid)
             {
-                db.Adults.Add(adult);
+                db.TotalPrices2s.Add(totalPrices2);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(adult);
+            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+            ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
+            return View(totalPrices2);
         }
 
-        // GET: Adults/Edit/5
+        // GET: TotalPrices2/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adult adult = db.Adults.Find(id);
-            if (adult == null)
+            TotalPrices2 totalPrices2 = db.TotalPrices2s.Find(id);
+            if (totalPrices2 == null)
             {
                 return HttpNotFound();
             }
-            return View(adult);
+            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+            ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
+            return View(totalPrices2);
         }
 
-        // POST: Adults/Edit/5
+        // POST: TotalPrices2/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AdultID,CateringType,CateringPrice")] Adult adult)
+        public ActionResult Edit([Bind(Include = "TotalPrices2ID,UserDecorID,VenueID")] TotalPrices2 totalPrices2)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(adult).State = EntityState.Modified;
+                db.Entry(totalPrices2).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(adult);
+            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+            ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
+            return View(totalPrices2);
         }
 
-        // GET: Adults/Delete/5
+        // GET: TotalPrices2/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adult adult = db.Adults.Find(id);
-            if (adult == null)
+            TotalPrices2 totalPrices2 = db.TotalPrices2s.Find(id);
+            if (totalPrices2 == null)
             {
                 return HttpNotFound();
             }
-            return View(adult);
+            return View(totalPrices2);
         }
 
-        // POST: Adults/Delete/5
+        // POST: TotalPrices2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Adult adult = db.Adults.Find(id);
-            db.Adults.Remove(adult);
+            TotalPrices2 totalPrices2 = db.TotalPrices2s.Find(id);
+            db.TotalPrices2s.Remove(totalPrices2);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -53,8 +53,8 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
-                userDecor.DecorNumberGuest = userDecor.GetNumbOfGuests();
-                userDecor.DecorCost = userDecor.GetDecorPrice(); 
+               // userDecor.DecorNumberGuest = userDecor.GetNumbOfGuests();
+               // userDecor.DecorCost = userDecor.GetDecorPrice(); 
                 db.UserDecors.Add(userDecor);
                 db.SaveChanges();
                 return RedirectToAction("Index");

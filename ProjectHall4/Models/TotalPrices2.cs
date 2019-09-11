@@ -12,21 +12,23 @@ namespace ProjectHall4.Models
         [Key]
         public int TotalPrices2ID { get; set; }
 
-        public virtual UserDecor UserDecor { get; set; }
+        
+        
         public int UserDecorID { get; set; }
+        public virtual UserDecor UserDecor { get; set; }
 
-      
 
-        public virtual Venue Venue { get; set; }
+       
         public int VenueID { get; set; }
+        public virtual Venue Venue { get; set; }
 
-        public decimal TotalBookingPrice { get; set; }
+        /*   public decimal TotalBookingPrice { get; set; }
 
-        public decimal TotalVenuePrice { get; set; }
+           public decimal TotalVenuePrice { get; set; }
 
-        public decimal TotalDecorPrice { get; set; }
+           public decimal TotalDecorPrice { get; set; }
 
-        public decimal TotalCateringPrice { get; set; }
+           public decimal TotalCateringPrice { get; set; }*/
 
         private ApplicationDbContext db = new ApplicationDbContext();
         public decimal VenuePrice()

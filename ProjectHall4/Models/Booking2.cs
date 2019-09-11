@@ -19,6 +19,7 @@ namespace ProjectHall4.Models
         [Required(ErrorMessage = "Please Enter a Date")]
         [Display(Name = "Date of Event")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Please Enter Number of Guests")]
