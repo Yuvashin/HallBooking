@@ -9,7 +9,7 @@ using ProjectHall4.Models;
 namespace ProjectHall4.Controllers
 {
  
-    [Authorize]// change role to Admin
+    [Authorize(Roles ="Admin")]// change role to Admin
     public class RoleController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

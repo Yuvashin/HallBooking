@@ -275,71 +275,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909020855473_a.cs" />
-    <Compile Include="Migrations\201909020855473_a.Designer.cs">
-      <DependentUpon>201909020855473_a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909021119214_b.cs" />
-    <Compile Include="Migrations\201909021119214_b.Designer.cs">
-      <DependentUpon>201909021119214_b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909022338318_c.cs" />
-    <Compile Include="Migrations\201909022338318_c.Designer.cs">
-      <DependentUpon>201909022338318_c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909050903274_d.cs" />
-    <Compile Include="Migrations\201909050903274_d.Designer.cs">
-      <DependentUpon>201909050903274_d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909102032239_e.cs" />
-    <Compile Include="Migrations\201909102032239_e.Designer.cs">
-      <DependentUpon>201909102032239_e.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909102225578_f.cs" />
-    <Compile Include="Migrations\201909102225578_f.Designer.cs">
-      <DependentUpon>201909102225578_f.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111439386_g.cs" />
-    <Compile Include="Migrations\201909111439386_g.Designer.cs">
-      <DependentUpon>201909111439386_g.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111448577_f1.cs" />
-    <Compile Include="Migrations\201909111448577_f1.Designer.cs">
-      <DependentUpon>201909111448577_f1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111451587_I.cs" />
-    <Compile Include="Migrations\201909111451587_I.Designer.cs">
-      <DependentUpon>201909111451587_I.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111503039_H.cs" />
-    <Compile Include="Migrations\201909111503039_H.Designer.cs">
-      <DependentUpon>201909111503039_H.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111507335_j.cs" />
-    <Compile Include="Migrations\201909111507335_j.Designer.cs">
-      <DependentUpon>201909111507335_j.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111508252_k.cs" />
-    <Compile Include="Migrations\201909111508252_k.Designer.cs">
-      <DependentUpon>201909111508252_k.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111746097_l.cs" />
-    <Compile Include="Migrations\201909111746097_l.Designer.cs">
-      <DependentUpon>201909111746097_l.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111812493_m.cs" />
-    <Compile Include="Migrations\201909111812493_m.Designer.cs">
-      <DependentUpon>201909111812493_m.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111826296_m1.cs" />
-    <Compile Include="Migrations\201909111826296_m1.Designer.cs">
-      <DependentUpon>201909111826296_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111856065_n.cs" />
-    <Compile Include="Migrations\201909111856065_n.Designer.cs">
-      <DependentUpon>201909111856065_n.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBusiness.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking2.cs" />
@@ -454,11 +389,6 @@
     <Content Include="Views\UserCaterings\Details.cshtml" />
     <Content Include="Views\UserCaterings\Edit.cshtml" />
     <Content Include="Views\UserCaterings\Index.cshtml" />
-    <Content Include="Views\UserDecors\Create.cshtml" />
-    <Content Include="Views\UserDecors\Delete.cshtml" />
-    <Content Include="Views\UserDecors\Details.cshtml" />
-    <Content Include="Views\UserDecors\Edit.cshtml" />
-    <Content Include="Views\UserDecors\Index.cshtml" />
     <Content Include="Views\TotalPrices2\Create.cshtml" />
     <Content Include="Views\TotalPrices2\Delete.cshtml" />
     <Content Include="Views\TotalPrices2\Details.cshtml" />
@@ -479,6 +409,11 @@
     <Content Include="Views\Caters\Details.cshtml" />
     <Content Include="Views\Caters\Edit.cshtml" />
     <Content Include="Views\Caters\Index.cshtml" />
+    <Content Include="Views\UserDecors\Create.cshtml" />
+    <Content Include="Views\UserDecors\Delete.cshtml" />
+    <Content Include="Views\UserDecors\Details.cshtml" />
+    <Content Include="Views\UserDecors\Edit.cshtml" />
+    <Content Include="Views\UserDecors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -495,56 +430,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909020855473_a.resx">
-      <DependentUpon>201909020855473_a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909021119214_b.resx">
-      <DependentUpon>201909021119214_b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909022338318_c.resx">
-      <DependentUpon>201909022338318_c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909050903274_d.resx">
-      <DependentUpon>201909050903274_d.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909102032239_e.resx">
-      <DependentUpon>201909102032239_e.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909102225578_f.resx">
-      <DependentUpon>201909102225578_f.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111439386_g.resx">
-      <DependentUpon>201909111439386_g.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111448577_f1.resx">
-      <DependentUpon>201909111448577_f1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111451587_I.resx">
-      <DependentUpon>201909111451587_I.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111503039_H.resx">
-      <DependentUpon>201909111503039_H.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111507335_j.resx">
-      <DependentUpon>201909111507335_j.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111508252_k.resx">
-      <DependentUpon>201909111508252_k.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111746097_l.resx">
-      <DependentUpon>201909111746097_l.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111812493_m.resx">
-      <DependentUpon>201909111812493_m.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111826296_m1.resx">
-      <DependentUpon>201909111826296_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111856065_n.resx">
-      <DependentUpon>201909111856065_n.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

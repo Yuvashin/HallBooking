@@ -10,6 +10,7 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class Booking2Controller : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,7 @@ namespace ProjectHall4.Controllers
         // GET: Booking2
         public ActionResult Index()
         {
-            var booking2s = db.Booking2s.Include(b => b.Venue);
+            var booking2s = db.Booking2.Include(b => b.Venue);
             return View(booking2s.ToList());
         }
 
@@ -28,7 +29,7 @@ namespace ProjectHall4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking2 booking2 = db.Booking2s.Find(id);
+            Booking2 booking2 = db.Booking2.Find(id);
             if (booking2 == null)
             {
                 return HttpNotFound();
@@ -52,9 +53,15 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Booking2s.Add(booking2);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(!booking2.getDate(booking2.Date))
+                {
+                    db.Booking2.Add(booking2);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", "Date is already taken.");
+                ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", booking2.VenueID);
+                return View(booking2);
             }
 
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", booking2.VenueID);
@@ -68,7 +75,7 @@ namespace ProjectHall4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking2 booking2 = db.Booking2s.Find(id);
+            Booking2 booking2 = db.Booking2.Find(id);
             if (booking2 == null)
             {
                 return HttpNotFound();
@@ -101,7 +108,7 @@ namespace ProjectHall4.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking2 booking2 = db.Booking2s.Find(id);
+            Booking2 booking2 = db.Booking2.Find(id);
             if (booking2 == null)
             {
                 return HttpNotFound();
@@ -114,8 +121,8 @@ namespace ProjectHall4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Booking2 booking2 = db.Booking2s.Find(id);
-            db.Booking2s.Remove(booking2);
+            Booking2 booking2 = db.Booking2.Find(id);
+            db.Booking2.Remove(booking2);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

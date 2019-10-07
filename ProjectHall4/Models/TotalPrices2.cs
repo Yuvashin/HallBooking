@@ -38,20 +38,20 @@ namespace ProjectHall4.Models
                          select ac.VenuePrice).Single();
             return Convert.ToDecimal(venue);
         }
-        public decimal DecorPrice()
-        {
-            var decor = (from ac in db.UserDecors
-                         where ac.UserDecorID == UserDecorID
-                         select ac.DecorCost).Single();
-            return Convert.ToDecimal(decor);
-        }
+        //public decimal DecorPrice()
+        //{
+        //    var decor = (from ac in db.UserDecors
+        //                 where ac.UserDecorID == UserDecorID
+        //                 select ac.DecorCost).Single();
+        //    return Convert.ToDecimal(decor);
+        //}
       
-        public decimal totalPrice()
-        {
-            decimal total = 0;
-            total = VenuePrice() + DecorPrice(); 
-            return Convert.ToDecimal(total);
-        }
+        //public decimal totalPrice()
+        //{
+        //    decimal total = 0;
+        //    total = VenuePrice() + DecorPrice(); 
+        //    return Convert.ToDecimal(total);
+        //}
 
     }
 }

@@ -11,9 +11,10 @@ namespace ProjectHall4.Models
     public class UserCatering
     {
         [Key]
-        public int UserCateringID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
-        public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
+        //public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
         public string Email { get; set; }
 
         public virtual Cater Catering { get; set; }
@@ -29,7 +30,7 @@ namespace ProjectHall4.Models
 
         public int GetNumbOfGuests()
         {
-            var numofguests = (from ac in db.Booking2s
+            var numofguests = (from ac in db.Booking2
                                where ac.Booking2ID == Booking2ID
                                select ac.TotalNumberOfGuests).Single();
             return Convert.ToInt16(numofguests);

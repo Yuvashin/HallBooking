@@ -29,6 +29,7 @@ namespace ProjectHall4.Models
         [DisplayName("Occasion")]
         public string OccasionType { get; set; }
 
+        [DisplayName("Venue Price")]
         public decimal baseVenuePrice { get; set; }
 
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -40,6 +41,19 @@ namespace ProjectHall4.Models
                               select ac.VenuePrice).Single();
             return Convert.ToDecimal(venueprice);
         }
-
+        public bool getDate(DateTime date)
+        {
+            var datesbooked = db.Booking2.ToList();
+            bool flag = false;
+            foreach(var item in datesbooked)
+            {
+                if(item.Date.Date==date)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        }
     }
 }

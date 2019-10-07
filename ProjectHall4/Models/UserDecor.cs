@@ -12,7 +12,8 @@ namespace ProjectHall4.Models
     public class UserDecor
     {
         [Key]
-        public int UserDecorID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
        // public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
         public string Email { get; set; }
@@ -36,8 +37,8 @@ namespace ProjectHall4.Models
 
         public int GetNumbOfGuests()
         {
-            var numofguests = (from ac in db.Booking2s
-                              where ac.Booking2ID == Booking2ID
+            var numofguests = (from ac in db.Booking2
+                               where ac.Booking2ID == Booking2ID
                               select ac.TotalNumberOfGuests).Single();
             return Convert.ToInt16(numofguests);
         }
@@ -48,5 +49,14 @@ namespace ProjectHall4.Models
                               select ac.DecorPrice).Single();
             return Convert.ToDecimal(decorprice * GetNumbOfGuests());
         }
+
+        //public void edit()
+        //{
+        //    UserDecor decor = db.UserDecor.Find(id);
+        //    decor = new UserDecor
+        //    {
+                
+        //    };
+        //}
     }
 }

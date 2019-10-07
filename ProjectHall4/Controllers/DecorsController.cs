@@ -37,6 +37,7 @@ namespace ProjectHall4.Controllers
         }
 
         // GET: Decors/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();

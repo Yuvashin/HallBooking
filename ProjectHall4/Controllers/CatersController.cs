@@ -36,6 +36,7 @@ namespace ProjectHall4.Controllers
         }
 
         // GET: Caters/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();

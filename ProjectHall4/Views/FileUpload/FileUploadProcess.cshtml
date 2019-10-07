@@ -3,7 +3,7 @@
     ViewBag.Title = "FileUploadProcess";
 }
 
-<h2>FileUploadProcess</h2>
+<h2>Upload a File</h2>
 @using (Html.BeginForm("FileUploadProcess", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data", @class = "container", role = "form" }))
 {
     @Html.AntiForgeryToken()

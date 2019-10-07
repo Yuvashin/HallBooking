@@ -155,6 +155,7 @@ namespace ProjectHall4.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await this.UserManager.AddToRoleAsync(user.Id, "User");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -173,7 +174,7 @@ namespace ProjectHall4.Controllers
         }
 
 
-        [Authorize(Roles ="Admin")]
+       [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult RegisterRole()
         {

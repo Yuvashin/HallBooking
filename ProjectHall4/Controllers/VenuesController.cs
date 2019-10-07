@@ -38,6 +38,7 @@ namespace ProjectHall4.Controllers
         }
 
         // GET: Venues/Create
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View();

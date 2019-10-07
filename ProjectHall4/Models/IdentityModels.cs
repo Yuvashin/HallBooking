@@ -43,9 +43,9 @@ namespace ProjectHall4.Models
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Venue> Venues { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectHall4.Models.Booking2> Booking2s { get; set; }
+        public System.Data.Entity.DbSet<ProjectHall4.Models.Booking2> Booking2 { get; set; }
 
-        public System.Data.Entity.DbSet<ProjectHall4.Models.UserDecor> UserDecors { get; set; }
+        //public System.Data.Entity.DbSet<ProjectHall4.Models.UserDecor> UserDecors { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.UserCatering> UserCaterings { get; set; }
 
@@ -59,5 +59,7 @@ namespace ProjectHall4.Models
         //public System.Data.Entity.DbSet<ProjectHall4.Models.Catering> Caterings { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.Cater> Caters { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectHall4.Models.UserDecor> UserDecors { get; set; }
     }
 }

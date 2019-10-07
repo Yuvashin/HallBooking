@@ -39,7 +39,7 @@ namespace ProjectHall4.Controllers
         // GET: UserDecors/Create
         public ActionResult Create()
         {
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType");
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne");
             return View();
         }
@@ -49,18 +49,16 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserDecorID,ExternalLoginConfirmationViewModel,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
+        public ActionResult Create([Bind(Include = "Id,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
         {
             if (ModelState.IsValid)
             {
-               // userDecor.DecorNumberGuest = userDecor.GetNumbOfGuests();
-               // userDecor.DecorCost = userDecor.GetDecorPrice(); 
                 db.UserDecors.Add(userDecor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }
@@ -77,7 +75,7 @@ namespace ProjectHall4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }
@@ -87,7 +85,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserDecorID,ExternalLoginConfirmationViewModel,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
+        public ActionResult Edit([Bind(Include = "Id,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +93,7 @@ namespace ProjectHall4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }

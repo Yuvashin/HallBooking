@@ -39,7 +39,7 @@ namespace ProjectHall4.Controllers
         // GET: TotalPrices2/Create
         public ActionResult Create()
         {
-            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email");
+           // ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email");
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName");
             return View();
         }
@@ -58,7 +58,7 @@ namespace ProjectHall4.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+            //ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
             return View(totalPrices2);
         }
@@ -75,7 +75,7 @@ namespace ProjectHall4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+           // ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
             return View(totalPrices2);
         }
@@ -93,7 +93,7 @@ namespace ProjectHall4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
+          //  ViewBag.UserDecorID = new SelectList(db.UserDecors, "UserDecorID", "Email", totalPrices2.UserDecorID);
             ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", totalPrices2.VenueID);
             return View(totalPrices2);
         }

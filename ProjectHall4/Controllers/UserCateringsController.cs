@@ -10,6 +10,7 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class UserCateringsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -39,8 +40,8 @@ namespace ProjectHall4.Controllers
         // GET: UserCaterings/Create
         public ActionResult Create()
         {
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType");
-         //   ViewBag.CateringID = new SelectList(db.Caterings, "CateringID", "CateringPackage");
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
+            ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserCateringID,ExternalLoginConfirmationViewModel,Email,CateringID,Booking2ID,CateringCost,CateringNumberGuest")] UserCatering userCatering)
+        public ActionResult Create([Bind(Include = "Id,ExternalLoginConfirmationViewModel,Email,CateringID,Booking2ID,CateringCost,CateringNumberGuest")] UserCatering userCatering)
         {
             if (ModelState.IsValid)
             {
@@ -60,8 +61,8 @@ namespace ProjectHall4.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userCatering.Booking2ID);
-          //  ViewBag.CateringID = new SelectList(db.Caterings, "CateringID", "CateringPackage", userCatering.CateringID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+            ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
 
@@ -77,8 +78,8 @@ namespace ProjectHall4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userCatering.Booking2ID);
-         //   ViewBag.CateringID = new SelectList(db.Caterings, "CateringID", "CateringPackage", userCatering.CateringID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+           ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
 
@@ -87,7 +88,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserCateringID,ExternalLoginConfirmationViewModel,Email,CateringID,Booking2ID,CateringCost,CateringNumberGuest")] UserCatering userCatering)
+        public ActionResult Edit([Bind(Include = "Id,ExternalLoginConfirmationViewModel,Email,CateringID,Booking2ID,CateringCost,CateringNumberGuest")] UserCatering userCatering)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +96,7 @@ namespace ProjectHall4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2s, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
           //  ViewBag.CateringID = new SelectList(db.Caterings, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
