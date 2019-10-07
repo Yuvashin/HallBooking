@@ -1,48 +1,11 @@
-﻿@model IEnumerable<ProjectHall4.Models.Venue>
-
+﻿
+@model IEnumerable<ProjectHall4.Models.Cater>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Decor";
 }
 
-@*<h2>Index</h2>
+<h2>Decor</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.VenueName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxCapity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VenuePrice)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenueName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxCapity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenuePrice)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.VenueID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.VenueID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.VenueID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
 <html>
 <head>
     <style>
@@ -338,8 +301,8 @@
             </div>
         </nav>
         <div style="text-align: center">
-            <h1>View our Venues</h1>
-            <p> general description of packages(Add upload rate  feature)</p>
+            <h1>Step 4</h1>
+            <p> Choose one of our catering packages.</p>
         </div>
 
         <div class="options">
@@ -348,21 +311,21 @@
             {
 
 
-                if (item.VenueID == 1)
+                if (item.CateringID == 1)
                 {
                     <div class="option active" style="--optionBackground:url(https://media-cdn.tripadvisor.com/media/photo-s/10/b2/2e/4d/birthday-party-decor.jpg);">
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-danger">  @Html.ActionLink("Choose this package", "CreateBooking", new { id = item.VenueID })</div>
-                              
+                                <div class="btn btn-danger">    @Html.ActionLink("Choose this package", "CreateCater", new { id = item.CateringID })</div>
+
                                 @*<a href="/Home/Gallery"><button type="button" class="btn btn-lg explorebtn" style="border-radius: 15px;">EXPLORE</button></a>*@
                             </div>
                             <div class="info">
                                 heading
-                                <div class="main"> @Html.DisplayFor(modelItem => item.VenueName)</div>
-                                <div class="sub">  @Html.DisplayFor(modelItem => item.MaxCapity) Max capacity</div>
-                                <div class="sub"> R @Html.DisplayFor(modelItem => item.VenuePrice)</div>
+                                <div class="main"> @Html.DisplayFor(modelItem => item.CateringPackage)</div>
+                                <div class="sub"> R @Html.DisplayFor(modelItem => item.CateringPrice)  </div>
+
                             </div>
                         </div>
                     </div>
@@ -375,16 +338,15 @@
                         <div class="label">
                             <div class="col-xs-12 explore">
                                 <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
-                                    @Html.ActionLink("Choose this package", "CreateBooking", new { id = item.VenueID })
+                                    @Html.ActionLink("Choose this package", "CreateCater", new { id = item.CateringID })
                                 </div>
 
                                 @*<a ><button type="button" class="btn btn-lg explorebtn" >EXPLORE</button></a>*@
                             </div>
                             <div class="info">
                                 heading
-                                <div class="main"> @Html.DisplayFor(modelItem => item.VenueName)</div>
-                                <div class="sub">  @Html.DisplayFor(modelItem => item.MaxCapity) Max capacity</div>
-                                <div class="sub"> R @Html.DisplayFor(modelItem => item.VenuePrice)</div>
+                                <div class="main"> @Html.DisplayFor(modelItem => item.CateringPackage)</div>
+                                <div class="sub"> R @Html.DisplayFor(modelItem => item.CateringPrice)  </div>
                             </div>
                         </div>
                     </div>

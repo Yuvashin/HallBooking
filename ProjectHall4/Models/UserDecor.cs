@@ -23,32 +23,32 @@ namespace ProjectHall4.Models
         public virtual Decor Decor { get; set; }
 
         
-        public int Booking2ID { get; set; }
+       /* public int Booking2ID { get; set; }
         public virtual Booking2 Booking2 { get; set; }
 
         public decimal DecorCost { get; set; }
 
-        public int DecorNumberGuest { get; set; }
+        public int DecorNumberGuest { get; set; }*/
 
 
 
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public int GetNumbOfGuests()
+      /*  public int GetNumbOfGuests()
         {
             var numofguests = (from ac in db.Booking2
                                where ac.Booking2ID == Booking2ID
                               select ac.TotalNumberOfGuests).Single();
             return Convert.ToInt16(numofguests);
-        }
-        public decimal GetDecorPrice()
+        }*/
+       /* public decimal GetDecorPrice()
         {
             var decorprice = (from ac in db.Decors
                               where ac.DecorID == DecorID
                               select ac.DecorPrice).Single();
             return Convert.ToDecimal(decorprice * GetNumbOfGuests());
-        }
+        }*/
 
         //public void edit()
         //{

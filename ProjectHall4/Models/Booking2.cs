@@ -29,8 +29,10 @@ namespace ProjectHall4.Models
         [DisplayName("Occasion")]
         public string OccasionType { get; set; }
 
-        [DisplayName("Venue Price")]
-        public decimal baseVenuePrice { get; set; }
+        public string Email { get; set; }
+
+       // [DisplayName("Venue Price")]
+       // public decimal baseVenuePrice { get; set; }
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -44,7 +46,7 @@ namespace ProjectHall4.Models
         public bool getDate(DateTime date)
         {
             var datesbooked = db.Booking2.ToList();
-            bool flag = false;
+            var flag = false;
             foreach(var item in datesbooked)
             {
                 if(item.Date.Date==date)

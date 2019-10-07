@@ -17,7 +17,12 @@ namespace ProjectHall4.Controllers
         // GET: UserDecors
         public ActionResult Index()
         {
-            var userDecors = db.UserDecors.Include(u => u.Booking2).Include(u => u.Decor);
+            var userDecors = db.UserDecors;
+            return View(userDecors.ToList());
+        }
+        public ActionResult Decor()
+        {
+            var userDecors = db.Decors;
             return View(userDecors.ToList());
         }
 
@@ -36,10 +41,17 @@ namespace ProjectHall4.Controllers
             return View(userDecor);
         }
 
+        public ActionResult CreateDecor(int id)
+        {
+            var userDecor = new UserDecor {DecorID = id, Email = User.Identity.Name};
+            db.UserDecors.Add(userDecor);
+            db.SaveChanges();
+            return RedirectToAction("Catering","UserCaterings");
+        }
         // GET: UserDecors/Create
         public ActionResult Create()
         {
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
+            //ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne");
             return View();
         }
@@ -49,16 +61,18 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
+        public ActionResult Create([Bind(Include = "Id,Email,DecorID")] UserDecor userDecor,int id)
         {
             if (ModelState.IsValid)
             {
+                userDecor.DecorID = id;
+                userDecor.Email = User.Identity.Name;
                 db.UserDecors.Add(userDecor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+           // ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }
@@ -75,7 +89,7 @@ namespace ProjectHall4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+           // ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }
@@ -85,15 +99,16 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,DecorID,Booking2ID,DecorCost,DecorNumberGuest")] UserDecor userDecor)
+        public ActionResult Edit([Bind(Include = "Id,Email,DecorID")] UserDecor userDecor)
         {
             if (ModelState.IsValid)
             {
+                userDecor.Email = User.Identity.Name;
                 db.Entry(userDecor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
+           // ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userDecor.Booking2ID);
             ViewBag.DecorID = new SelectList(db.Decors, "DecorID", "DecorColourOne", userDecor.DecorID);
             return View(userDecor);
         }

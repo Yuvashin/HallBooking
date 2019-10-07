@@ -18,10 +18,21 @@ namespace ProjectHall4.Controllers
         // GET: UserCaterings
         public ActionResult Index()
         {
-            var userCaterings = db.UserCaterings.Include(u => u.Booking2).Include(u => u.Catering);
+            var userCaterings = db.UserCaterings;
             return View(userCaterings.ToList());
         }
-
+        public ActionResult Catering()
+        {
+            var userCaterings = db.Caters;
+            return View(userCaterings.ToList());
+        }
+        public ActionResult CreateCater(int id)
+        {
+            var userDecor = new UserCatering { CateringID = id, Email = User.Identity.Name };
+            db.UserCaterings.Add(userDecor);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: UserCaterings/Details/5
         public ActionResult Details(int? id)
         {
@@ -40,7 +51,7 @@ namespace ProjectHall4.Controllers
         // GET: UserCaterings/Create
         public ActionResult Create()
         {
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
+          //  ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType");
             ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage");
             return View();
         }
@@ -54,14 +65,15 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
-                userCatering.CateringNumberGuest = userCatering.GetNumbOfGuests();
+                
+               // userCatering.CateringNumberGuest = userCatering.GetNumbOfGuests();
                // userCatering.CateringCost = userCatering.GetCateringPrice();
                 db.UserCaterings.Add(userCatering);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+           // ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
             ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
@@ -78,7 +90,7 @@ namespace ProjectHall4.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+            //ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
            ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
@@ -96,8 +108,8 @@ namespace ProjectHall4.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
-          //  ViewBag.CateringID = new SelectList(db.Caterings, "CateringID", "CateringPackage", userCatering.CateringID);
+           // ViewBag.Booking2ID = new SelectList(db.Booking2, "Booking2ID", "OccasionType", userCatering.Booking2ID);
+              ViewBag.CateringID = new SelectList(db.Caters, "CateringID", "CateringPackage", userCatering.CateringID);
             return View(userCatering);
         }
 

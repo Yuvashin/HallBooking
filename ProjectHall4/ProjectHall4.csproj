@@ -414,6 +414,9 @@
     <Content Include="Views\UserDecors\Details.cshtml" />
     <Content Include="Views\UserDecors\Edit.cshtml" />
     <Content Include="Views\UserDecors\Index.cshtml" />
+    <Content Include="Views\Booking2\Venue.cshtml" />
+    <Content Include="Views\UserDecors\Decor.cshtml" />
+    <Content Include="Views\UserCaterings\Catering.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

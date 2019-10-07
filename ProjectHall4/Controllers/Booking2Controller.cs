@@ -22,6 +22,11 @@ namespace ProjectHall4.Controllers
             return View(booking2s.ToList());
         }
 
+        public ActionResult Venue()
+        {
+            return View(db.Venues.ToList());
+        }
+
         // GET: Booking2/Details/5
         public ActionResult Details(int? id)
         {
@@ -38,9 +43,9 @@ namespace ProjectHall4.Controllers
         }
 
         // GET: Booking2/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName");
+            ViewBag.VenueID = new SelectList(db.Venues.Where(x=>x.VenueID==id), "VenueID", "VenueName");
             return View();
         }
 
@@ -49,15 +54,16 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType,baseVenuePrice")] Booking2 booking2)
+        public ActionResult Create([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType")] Booking2 booking2)
         {
             if (ModelState.IsValid)
             {
                 if(!booking2.getDate(booking2.Date))
                 {
+                    booking2.Email = User.Identity.Name;
                     db.Booking2.Add(booking2);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Decor","UserDecors");
                 }
                 ModelState.AddModelError("", "Date is already taken.");
                 ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", booking2.VenueID);
@@ -89,7 +95,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType,baseVenuePrice")] Booking2 booking2)
+        public ActionResult Edit([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType")] Booking2 booking2)
         {
             if (ModelState.IsValid)
             {

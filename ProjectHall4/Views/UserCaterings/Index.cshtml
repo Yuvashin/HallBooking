@@ -11,9 +11,7 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Booking2.OccasionType)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Catering.CateringPackage)
         </th>
@@ -21,20 +19,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CateringCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CateringNumberGuest)
-        </th>
+       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Booking2.OccasionType)
-        </td>
+     
         <td>
             @Html.DisplayFor(modelItem => item.Catering.CateringPackage)
         </td>
@@ -42,12 +33,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateringCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateringNumberGuest)
-        </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

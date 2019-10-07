@@ -23,9 +23,7 @@
         <th>
             @Html.DisplayNameFor(model => model.OccasionType)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.baseVenuePrice)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -43,9 +41,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.OccasionType)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.baseVenuePrice)
-        </td>
+     
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Booking2ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.Booking2ID }) |

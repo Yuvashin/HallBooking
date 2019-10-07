@@ -4,45 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-@*<h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.VenueName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxCapity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VenuePrice)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenueName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxCapity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VenuePrice)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.VenueID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.VenueID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.VenueID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
 <html>
 <head>
     <style>
@@ -339,7 +300,7 @@
         </nav>
         <div style="text-align: center">
             <h1>View our Venues</h1>
-            <p> general description of packages(Add upload rate  feature)</p>
+            <p> Step 1 choose a venue</p>
         </div>
 
         <div class="options">
@@ -354,8 +315,8 @@
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-danger">  @Html.ActionLink("Choose this package", "CreateBooking", new { id = item.VenueID })</div>
-                              
+                                <div class="btn btn-danger">  @Html.ActionLink("Choose this package", "Create", new { id = item.VenueID })</div>
+
                                 @*<a href="/Home/Gallery"><button type="button" class="btn btn-lg explorebtn" style="border-radius: 15px;">EXPLORE</button></a>*@
                             </div>
                             <div class="info">
@@ -375,7 +336,7 @@
                         <div class="label">
                             <div class="col-xs-12 explore">
                                 <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
-                                    @Html.ActionLink("Choose this package", "CreateBooking", new { id = item.VenueID })
+                                    @Html.ActionLink("Choose this package", "Create", new { id = item.VenueID })
                                 </div>
 
                                 @*<a ><button type="button" class="btn btn-lg explorebtn" >EXPLORE</button></a>*@
@@ -412,3 +373,4 @@
         $(this).addClass("active");
     });
 </script>
+

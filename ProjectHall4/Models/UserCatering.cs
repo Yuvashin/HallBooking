@@ -20,21 +20,21 @@ namespace ProjectHall4.Models
         public virtual Cater Catering { get; set; }
         public int CateringID { get; set; }
 
-        public virtual Booking2 Booking2 { get; set; }
+       /* public virtual Booking2 Booking2 { get; set; }
         public int Booking2ID { get; set; }
 
         public decimal CateringCost { get; set; }
-        public int CateringNumberGuest { get; set; }
+        public int CateringNumberGuest { get; set; }*/
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public int GetNumbOfGuests()
+        /*public int GetNumbOfGuests()
         {
             var numofguests = (from ac in db.Booking2
                                where ac.Booking2ID == Booking2ID
                                select ac.TotalNumberOfGuests).Single();
             return Convert.ToInt16(numofguests);
-        }
+        }*/
       /*  public decimal GetCateringPrice()
         {
             var cateringprice = (from ac in db.Caterings
