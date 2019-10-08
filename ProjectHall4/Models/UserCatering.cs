@@ -15,7 +15,10 @@ namespace ProjectHall4.Models
         public int Id { get; set; }
 
         //public virtual ExternalLoginConfirmationViewModel ExternalLoginConfirmationViewModel { get; set; }
-        public string Email { get; set; }
+        //public string Email { get; set; }
+
+        public virtual  BookingStatus BookingStatus { get; set; }
+        public  int BookingStatusId { get; set; }
 
         public virtual Cater Catering { get; set; }
         public int CateringID { get; set; }

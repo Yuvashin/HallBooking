@@ -61,5 +61,10 @@ namespace ProjectHall4.Models
         public System.Data.Entity.DbSet<ProjectHall4.Models.Cater> Caters { get; set; }
 
         public System.Data.Entity.DbSet<ProjectHall4.Models.UserDecor> UserDecors { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectHall4.Models.BookingStatus> BookingStatus { get; set; }
+        public System.Data.Entity.DbSet<ProjectHall4.Models.Payments> Payments { get; set; }
+
+      //  public System.Data.Entity.DbSet<ProjectHall4.Models.ViewBooking> ViewBookings { get; set; }
     }
 }

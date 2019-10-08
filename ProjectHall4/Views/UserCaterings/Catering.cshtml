@@ -303,6 +303,14 @@
         <div style="text-align: center">
             <h1>Step 4</h1>
             <p> Choose one of our catering packages.</p>
+            @if (TempData["Status"] != null)
+            {
+                var name = TempData.ToString();
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Unsuccessful!</strong> @TempData.Peek("Status")
+                </div>
+            }
         </div>
 
         <div class="options">

@@ -10,6 +10,7 @@ using ProjectHall4.Models;
 
 namespace ProjectHall4.Controllers
 {
+    [Authorize]
     public class UserDecorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,9 +42,17 @@ namespace ProjectHall4.Controllers
             return View(userDecor);
         }
 
-        public ActionResult CreateDecor(int id)
+        public ActionResult CreateDecor(int id,BookingStatus bookings,UserDecor userDecor)
         {
-            var userDecor = new UserDecor {DecorID = id, Email = User.Identity.Name};
+            if (bookings.StageCheck(2, User.Identity.Name))
+            {
+                TempData["Status"] = "You have already Completed this stage for your active booking.";
+                return RedirectToAction("Decor");
+            }
+
+            userDecor.DecorID = id;
+            userDecor.BookingStatusId = bookings.getBookingStatusId(User.Identity.Name);
+            bookings.editStage(User.Identity.Name,2);
             db.UserDecors.Add(userDecor);
             db.SaveChanges();
             return RedirectToAction("Catering","UserCaterings");
@@ -61,12 +70,12 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,DecorID")] UserDecor userDecor,int id)
+        public ActionResult Create([Bind(Include = "UserDecorId,Email,DecorID")] UserDecor userDecor,int id)
         {
             if (ModelState.IsValid)
             {
                 userDecor.DecorID = id;
-                userDecor.Email = User.Identity.Name;
+               // userDecor.Email = User.Identity.Name;
                 db.UserDecors.Add(userDecor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -103,7 +112,7 @@ namespace ProjectHall4.Controllers
         {
             if (ModelState.IsValid)
             {
-                userDecor.Email = User.Identity.Name;
+             //   userDecor.Email = User.Identity.Name;
                 db.Entry(userDecor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

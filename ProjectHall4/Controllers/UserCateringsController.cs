@@ -21,17 +21,46 @@ namespace ProjectHall4.Controllers
             var userCaterings = db.UserCaterings;
             return View(userCaterings.ToList());
         }
+
+        public ActionResult backto()
+        {
+            return RedirectToAction("Index", "BookingStatus");
+        }
+        public ActionResult ConfirmBooking(Payments pay,BookingStatus booking)
+        {
+            if (pay.PaymentCheck(User.Identity.Name))
+            {
+                booking.editStage(User.Identity.Name, 4);
+                booking.editStage(User.Identity.Name, 5);
+                return RedirectToAction("Payment");
+            }
+            return RedirectToAction("Payment");
+        }
+        public ActionResult Payment()
+        {
+
+            return View(db.Payments.ToList().Where(x=>x.BookingStatus.Email==User.Identity.Name));
+        }
         public ActionResult Catering()
         {
             var userCaterings = db.Caters;
             return View(userCaterings.ToList());
         }
-        public ActionResult CreateCater(int id)
+        public ActionResult CreateCater(int id, UserCatering userCater,BookingStatus booking,Payments payments)
         {
-            var userDecor = new UserCatering { CateringID = id, Email = User.Identity.Name };
-            db.UserCaterings.Add(userDecor);
+            if (booking.StageCheck(3, User.Identity.Name))
+            {
+                TempData["Status"] = "You have already Completed this stage for your active booking.";
+                return RedirectToAction("Catering");
+            }
+           // var userDecor = new UserCatering { CateringID = id, BookingStatusId = 1 };//change 1
+           userCater.CateringID = id;
+           userCater.BookingStatusId = booking.getBookingStatusId(User.Identity.Name);
+           booking.editStage(User.Identity.Name,3);
+           if(payments.PaymentCheck(User.Identity.Name))payments.AddPayment(booking.getBookingStatusId(User.Identity.Name));
+            db.UserCaterings.Add(userCater);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Payment");
         }
         // GET: UserCaterings/Details/5
         public ActionResult Details(int? id)
@@ -61,7 +90,7 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ExternalLoginConfirmationViewModel,Email,CateringID,Booking2ID,CateringCost,CateringNumberGuest")] UserCatering userCatering)
+        public ActionResult Create([Bind(Include = "UserCateringId,BookingStatusId,CateringID,")] UserCatering userCatering)
         {
             if (ModelState.IsValid)
             {

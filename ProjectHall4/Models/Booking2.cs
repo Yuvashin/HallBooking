@@ -29,10 +29,13 @@ namespace ProjectHall4.Models
         [DisplayName("Occasion")]
         public string OccasionType { get; set; }
 
-        public string Email { get; set; }
+        public  virtual  BookingStatus BookingStatus { get; set; }
+        public int BookingStatusId { get; set; }
 
-       // [DisplayName("Venue Price")]
-       // public decimal baseVenuePrice { get; set; }
+        //public string Email { get; set; }
+
+        // [DisplayName("Venue Price")]
+        // public decimal baseVenuePrice { get; set; }
 
         private ApplicationDbContext db = new ApplicationDbContext();
 

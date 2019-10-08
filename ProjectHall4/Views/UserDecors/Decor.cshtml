@@ -3,7 +3,7 @@
     ViewBag.Title = "Decor";
 }
 
-<h2>Decor</h2>
+
 
 <html>
 <head>
@@ -303,6 +303,14 @@
             <h1>Step 3</h1>
             <p> Choose one of our decor packages.</p>
         </div>
+        @if (TempData["Status"] != null)
+        {
+            var name = TempData.ToString();
+            <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Unsuccessful!</strong> @TempData.Peek("Status")
+            </div>
+        }
 
         <div class="options">
 

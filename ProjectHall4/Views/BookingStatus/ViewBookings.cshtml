@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProjectHall4.Models.ViewBooking>
+
+@{
+    ViewBag.Title = "ViewBookings";
+}
+
+<h2>ViewBookings</h2>
+
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CateringType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cateringCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecorType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decorCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VenueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VenueCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CateringType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cateringCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecorType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.decorCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+      
+    </tr>
+}
+
+</table>

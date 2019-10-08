@@ -42,6 +42,7 @@ namespace ProjectHall4.Controllers
             return View(booking2);
         }
 
+       
         // GET: Booking2/Create
         public ActionResult Create(int id)
         {
@@ -54,13 +55,21 @@ namespace ProjectHall4.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType")] Booking2 booking2)
+        public ActionResult Create([Bind(Include = "Booking2ID,VenueID,Date,TotalNumberOfGuests,OccasionType")] Booking2 booking2,BookingStatus booking)
         {
             if (ModelState.IsValid)
             {
+                if (booking.StageCheck(1, User.Identity.Name))
+                {
+                    ModelState.AddModelError("", @"You have already Completed this stage for your active booking.");
+                    ViewBag.VenueID = new SelectList(db.Venues, "VenueID", "VenueName", booking2.VenueID);
+                    return View(booking2);
+                }
                 if(!booking2.getDate(booking2.Date))
                 {
-                    booking2.Email = User.Identity.Name;
+                   // booking2.Email = User.Identity.Name;
+                    booking2.BookingStatusId = booking.getBookingStatusId(User.Identity.Name);
+                    booking.editStage(User.Identity.Name,1);
                     db.Booking2.Add(booking2);
                     db.SaveChanges();
                     return RedirectToAction("Decor","UserDecors");

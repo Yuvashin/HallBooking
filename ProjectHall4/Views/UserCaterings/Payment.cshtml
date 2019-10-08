@@ -1,0 +1,45 @@
+﻿@using ProjectHall4.Models
+@model IEnumerable<ProjectHall4.Models.Payments>
+
+@{
+    ViewBag.Title = "Payment";
+}
+
+<h2>Payment</h2>
+
+<p>
+    @Html.ActionLink("Back to bookings", "backto")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingStatus.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingStatus.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+     
+            @if (item.BookingStatus.Step4)
+            {
+                <td>Booking Confirmed</td>
+            }
+            else
+            {
+        <td> @Html.ActionLink("Confirm Booking", "ConfirmBooking", new { id = item.PaymentsId }) </td>
+            }
+       
+    </tr>
+}
+
+</table>

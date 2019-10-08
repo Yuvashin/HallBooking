@@ -1,0 +1,66 @@
+﻿@model ProjectHall4.Models.BookingStatus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookingStatus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Step1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Step1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Step2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Step2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Step3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Step3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Step4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Step4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingStatusId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

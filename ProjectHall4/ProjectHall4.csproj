@@ -261,6 +261,7 @@
     <Compile Include="Business\FileUpload.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Booking2Controller.cs" />
+    <Compile Include="Controllers\BookingStatusController.cs" />
     <Compile Include="Controllers\CatersController.cs" />
     <Compile Include="Controllers\DecorsController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
@@ -275,20 +276,60 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910081118549_a.cs" />
+    <Compile Include="Migrations\201910081118549_a.Designer.cs">
+      <DependentUpon>201910081118549_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081221216_b.cs" />
+    <Compile Include="Migrations\201910081221216_b.Designer.cs">
+      <DependentUpon>201910081221216_b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081422439_c.cs" />
+    <Compile Include="Migrations\201910081422439_c.Designer.cs">
+      <DependentUpon>201910081422439_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081435590_d.cs" />
+    <Compile Include="Migrations\201910081435590_d.Designer.cs">
+      <DependentUpon>201910081435590_d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081825053_e.cs" />
+    <Compile Include="Migrations\201910081825053_e.Designer.cs">
+      <DependentUpon>201910081825053_e.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081828309_f.cs" />
+    <Compile Include="Migrations\201910081828309_f.Designer.cs">
+      <DependentUpon>201910081828309_f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910081929005_g.cs" />
+    <Compile Include="Migrations\201910081929005_g.Designer.cs">
+      <DependentUpon>201910081929005_g.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910082040099_h.cs" />
+    <Compile Include="Migrations\201910082040099_h.Designer.cs">
+      <DependentUpon>201910082040099_h.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910082052191_i.cs" />
+    <Compile Include="Migrations\201910082052191_i.Designer.cs">
+      <DependentUpon>201910082052191_i.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBusiness.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking2.cs" />
+    <Compile Include="Models\BookingStatus.cs" />
     <Compile Include="Models\Cater.cs" />
     <Compile Include="Models\Decor.cs" />
     <Compile Include="Models\FileUploadModel.cs" />
     <Compile Include="Models\FileUploadVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payments.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TotalPrices2.cs" />
     <Compile Include="Models\UserCatering.cs" />
     <Compile Include="Models\UserDecor.cs" />
     <Compile Include="Models\Venue.cs" />
+    <Compile Include="Models\ViewBooking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -417,6 +458,14 @@
     <Content Include="Views\Booking2\Venue.cshtml" />
     <Content Include="Views\UserDecors\Decor.cshtml" />
     <Content Include="Views\UserCaterings\Catering.cshtml" />
+    <Content Include="Views\BookingStatus\Create.cshtml" />
+    <Content Include="Views\BookingStatus\Delete.cshtml" />
+    <Content Include="Views\BookingStatus\Details.cshtml" />
+    <Content Include="Views\BookingStatus\Edit.cshtml" />
+    <Content Include="Views\BookingStatus\Index.cshtml" />
+    <Content Include="Views\UserCaterings\Payment.cshtml" />
+    <Content Include="Views\BookingStatus\ViewBooking.cshtml" />
+    <Content Include="Views\BookingStatus\ViewBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,6 +482,35 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910081118549_a.resx">
+      <DependentUpon>201910081118549_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081221216_b.resx">
+      <DependentUpon>201910081221216_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081422439_c.resx">
+      <DependentUpon>201910081422439_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081435590_d.resx">
+      <DependentUpon>201910081435590_d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081825053_e.resx">
+      <DependentUpon>201910081825053_e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081828309_f.resx">
+      <DependentUpon>201910081828309_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910081929005_g.resx">
+      <DependentUpon>201910081929005_g.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910082040099_h.resx">
+      <DependentUpon>201910082040099_h.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910082052191_i.resx">
+      <DependentUpon>201910082052191_i.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

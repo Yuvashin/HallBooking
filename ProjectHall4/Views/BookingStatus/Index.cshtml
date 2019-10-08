@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ProjectHall4.Models.BookingStatus>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Booking", "BookNow")
+</p>
+@if (TempData["Status"] != null)
+{
+    var name = TempData.ToString();
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Unsuccessful!</strong> @TempData.Peek("Status")
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Step1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Step2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Step3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Step4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        @if (item.Step1)
+        {
+            <td>Completed</td>
+        }
+        else
+        {
+            <td>@Html.ActionLink("Incomplete","Step1")</td>
+        }
+
+
+
+        @if (item.Step2)
+        {
+            <td>Completed</td>
+        }
+        else
+        {
+            <td>@Html.ActionLink("Incomplete","Step2")</td>
+        }
+
+        @if (item.Step3)
+        {
+            <td>Completed</td>
+        }
+        else
+        {
+            <td>@Html.ActionLink("Incomplete","Step3")</td>
+        }
+
+        @if (item.Step4)
+        {
+            <td>Completed</td>
+        }
+        else
+        {
+            <td>Incomplete</td>
+        }
+        
+        @if (item.Status)
+        {
+            <td>Confirmed</td>
+        }
+        else
+        {
+            <td>Active</td>
+        }
+
+        <td>
+            @Html.ActionLink("View Details", "ViewBookings", new { id=item.BookingStatusId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
