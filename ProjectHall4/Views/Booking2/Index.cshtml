@@ -6,9 +6,9 @@
 
 <h2>List of Bookings</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -23,7 +23,10 @@
         <th>
             @Html.DisplayNameFor(model => model.OccasionType)
         </th>
-       
+        <th>
+            @Html.DisplayNameFor(model => model.BookingStatus.Email)
+        </th>
+
         <th></th>
     </tr>
 
@@ -41,12 +44,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.OccasionType)
         </td>
-     
         <td>
+            @Html.DisplayFor(modelItem => item.BookingStatus.Email)
+        </td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Booking2ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.Booking2ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Booking2ID })
-        </td>
+        </td>*@
     </tr>
 }
 

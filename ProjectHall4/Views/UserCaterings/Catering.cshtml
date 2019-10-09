@@ -1,10 +1,10 @@
 ﻿
 @model IEnumerable<ProjectHall4.Models.Cater>
 @{
-    ViewBag.Title = "Decor";
+    ViewBag.Title = "Index";
 }
 
-<h2>Decor</h2>
+<h2>Catering</h2>
 
 <html>
 <head>
@@ -259,12 +259,18 @@
                     background-color: transparent;
                 }
 
-                .navbar-default .navbar-toggle:focus {
+                .navbar-default .navbar-toglgle:focus {
                     background-color: transparent;
                 }
 
                 .navbar-default .navbar-toggle .icon-bar {
                     background-color: #000;
+                }
+                .a{
+                    color:white!important;
+                }
+                .test{
+                    color:white;
                 }
     </style>
     <meta name="viewport" content="width=device-width" />
@@ -325,12 +331,12 @@
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-danger">    @Html.ActionLink("Choose this package", "CreateCater", new { id = item.CateringID })</div>
+                                <div class="btn btn-default">    @Html.ActionLink("Choose this package", "CreateCater", new { id = item.CateringID })</div>
 
                                 @*<a href="/Home/Gallery"><button type="button" class="btn btn-lg explorebtn" style="border-radius: 15px;">EXPLORE</button></a>*@
                             </div>
                             <div class="info">
-                                heading
+                    
                                 <div class="main"> @Html.DisplayFor(modelItem => item.CateringPackage)</div>
                                 <div class="sub"> R @Html.DisplayFor(modelItem => item.CateringPrice)  </div>
 
@@ -345,7 +351,7 @@
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
+                                <div class="btn btn-default">
                                     @Html.ActionLink("Choose this package", "CreateCater", new { id = item.CateringID })
                                 </div>
 

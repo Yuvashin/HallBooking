@@ -135,7 +135,7 @@ body {
             width: 100%;
         }
 
-    .card .branded {
+    /*.card .branded {
         position: relative;
         background: #fff;
         -moz-border-radius: 50%;
@@ -146,7 +146,7 @@ body {
         margin: -55px auto 0;
         width: 120px;
         text-align: center;
-    }
+    }*/
 
     .card .content {
         background-color: transparent;

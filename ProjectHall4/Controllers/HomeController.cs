@@ -8,14 +8,22 @@ namespace ProjectHall4.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Home()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
         }
 
+        public ActionResult _Admin()
+        {
+            return PartialView();
+        }
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
@@ -32,10 +40,7 @@ namespace ProjectHall4.Controllers
             return View();
         }
 
-        public ActionResult Home()
-        {
-            return View();
-        }
+       
 
         public ActionResult Gallery()
         {

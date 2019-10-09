@@ -1,39 +1,458 @@
 ﻿@model IEnumerable<ProjectHall4.Models.Cater>
 
-@{
-    ViewBag.Title = "Index";
+
+
+@*@{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>List of Catering Packages</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CateringPackage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CateringPrice)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateringPackage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateringPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CateringID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CateringID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CateringID })
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+@if (User.IsInRole("Admin"))
+{
+    {
+        ViewBag.Title = "Index";
+    }
+
+    <h2>List of Catering Choices</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CateringPackage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CateringPrice)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateringPackage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateringPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CateringID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CateringID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CateringID })
+                </td>
+            </tr>
+        }
+
+    </table>
 }
 
-<h2>List of Catering Packages</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CateringPackage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CateringPrice)
-        </th>
-        <th></th>
-    </tr>
+else if (User.IsInRole("User"))
+{
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateringPackage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateringPrice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CateringID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CateringID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CateringID })
-        </td>
-    </tr>
+    {
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 100vh;
+                font-family: 'Roboto', sans-serif;
+            }
+
+                body .credit {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 20px;
+                    color: #000;
+                }
+
+                body .options {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: stretch;
+                    overflow: hidden;
+                    min-width: 800px;
+                    max-width: 900px;
+                    width: calc(100% - 100px);
+                    height: 400px;
+                }
+
+            @@media screen and (max-width: 718px) {
+                body .options {
+                    min-width: 520px;
+                }
+
+                    body .options .option:nth-child(5) {
+                        display: none;
+                    }
+            }
+
+            @@media screen and (max-width: 638px) {
+                body .options {
+                    min-width: 440px;
+                }
+
+                    body .options .option:nth-child(4) {
+                        display: none;
+                    }
+            }
+
+            @@media screen and (max-width: 558px) {
+                body .options {
+                    min-width: 360px;
+                }
+
+                    body .options .option:nth-child(3) {
+                        display: none;
+                    }
+            }
+
+            @@media screen and (max-width: 478px) {
+                body .options {
+                    min-width: 280px;
+                }
+
+                    body .options .option:nth-child(2) {
+                        display: none;
+                    }
+            }
+
+            body .options .option {
+                position: relative;
+                overflow: hidden;
+                min-width: 60px;
+                margin: 10px;
+                background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+                background-size: auto 120%;
+                background-position: center;
+                cursor: pointer;
+                transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+            }
+
+                body .options .option:nth-child(1) {
+                    --defaultBackground: #ED5565;
+                }
+
+                body .options .option:nth-child(2) {
+                    --defaultBackground: #FC6E51;
+                }
+
+                body .options .option:nth-child(3) {
+                    --defaultBackground: #FFCE54;
+                }
+
+                body .options .option:nth-child(4) {
+                    --defaultBackground: #2ECC71;
+                }
+
+                body .options .option:nth-child(5) {
+                    --defaultBackground: #5D9CEC;
+                }
+
+                body .options .option:nth-child(6) {
+                    --defaultBackground: #AC92EC;
+                }
+
+                body .options .option.active {
+                    flex-grow: 10000;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    max-width: 600px;
+                    margin: 0px;
+                    border-radius: 40px;
+                    background-size: auto 100%;
+                    /*&:active {
+               transform:scale(0.9);
+            }*/
+                }
+
+                    body .options .option.active .shadow {
+                        box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+                    }
+
+                    body .options .option.active .label {
+                        bottom: 20px;
+                        left: 20px;
+                    }
+
+                        body .options .option.active .label .info > div {
+                            left: 0px;
+                            opacity: 1;
+                        }
+
+                body .options .option:not(.active) {
+                    flex-grow: 1;
+                    border-radius: 30px;
+                }
+
+                    body .options .option:not(.active) .shadow {
+                        bottom: -40px;
+                        box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+                    }
+
+                    body .options .option:not(.active) .label {
+                        bottom: 10px;
+                        left: 10px;
+                    }
+
+                        body .options .option:not(.active) .label .info > div {
+                            left: 20px;
+                            opacity: 0;
+                        }
+
+                body .options .option .shadow {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    right: 0px;
+                    height: 120px;
+                    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+                }
+
+                body .options .option .label {
+                    display: flex;
+                    position: absolute;
+                    right: 0px;
+                    height: 40px;
+                    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+                }
+
+                    body .options .option .label .icon {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        min-width: 40px;
+                        max-width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                        background-color: white;
+                        color: var(--defaultBackground);
+                    }
+
+                    body .options .option .label .info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                        color: white;
+                        white-space: pre;
+                    }
+
+                        body .options .option .label .info > div {
+                            position: relative;
+                            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+                        }
+
+                        body .options .option .label .info .main {
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                        }
+
+                        body .options .option .label .info .sub {
+                            transition-delay: .1s;
+                        }
+
+            .navbar-default {
+                color: #000;
+                background-image: none;
+                border-color: transparent !important;
+                background-color: transparent !important; /* Make the menu become transparent */
+                border-radius: 0px;
+                border: 0;
+                box-shadow: none;
+                padding: 10px;
+                position: absolute !important; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+            }
+
+                .navbar-default .navbar-brand {
+                    font-family: Verdana;
+                    color: #000 !important;
+                    font-size: 20px;
+                }
+
+                    .navbar-default .navbar-brand:hover,
+                    .navbar-default .navbar-brand:focus {
+                        color: #666666;
+                        background-color: transparent;
+                    }
+
+                .navbar-default .navbar-nav > li > a {
+                    color: #000 !important;
+                }
+
+                    .navbar-default .navbar-nav > li > a:hover,
+                    .navbar-default .navbar-nav > li > a:focus {
+                        color: #666 !important;
+                        background-color: transparent;
+                    }
+
+                .navbar-default .navbar-toggle {
+                    border-color: transparent;
+                }
+
+                    .navbar-default .navbar-toggle:hover {
+                        background-color: transparent;
+                    }
+
+                    .navbar-default .navbar-toggle:focus {
+                        background-color: transparent;
+                    }
+
+                    .navbar-default .navbar-toggle .icon-bar {
+                        background-color: #000;
+                    }
+        </style>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://static.fontawesome.com/css/fontawesome-app.css" />
+        <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid main">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Avante Venues</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/Home/Home">Home</a></li>
+                            <li><a href="/Home/Gallery">Gallery</a></li>
+                            <li><a href="/Home/Packages">Packages</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </nav>
+            <div style="text-align: center">
+                <h1>Catering packages</h1>
+                <p> general description of packages(Add upload rate  feature)</p>
+            </div>
+
+            <div class="options">
+
+                @foreach (var item in Model)
+                {
+
+
+                    if (item.CateringID == 1)
+                    {
+                        <div class="option active" style="--optionBackground:url(https://media-cdn.tripadvisor.com/media/photo-s/10/b2/2e/4d/birthday-party-decor.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="col-xs-12 explore">
+                                    @*<a href="/Home/Gallery"><button type="button" class="btn btn-lg explorebtn" style="border-radius: 15px;">EXPLORE</button></a>*@
+                                </div>
+                                <div class="info">
+                                    heading
+                                    <div class="main"> @Html.DisplayFor(modelItem => item.CateringPackage)</div>
+                                    <div class="sub"> R @Html.DisplayFor(modelItem => item.CateringPrice) pp</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="option" style="--optionBackground:url(http://happybirthdayworld.net/wp-content/uploads/2018/05/21st-birthday-party-themes-for-guys-6.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="col-xs-12 explore">
+                                    <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
+                                        @Html.ActionLink("Choose this package", "d", new { id = item.CateringID })
+                                    </div>
+
+                                    @*<a ><button type="button" class="btn btn-lg explorebtn" >EXPLORE</button></a>*@
+                                </div>
+                                <div class="info">
+                                    heading
+                                    <div class="main"> @Html.DisplayFor(modelItem => item.CateringPackage)</div>
+                                    <div class="sub"> R @Html.DisplayFor(modelItem => item.CateringPrice) pp</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                }
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
 }
 
-</table>
+
+
+<script>
+    $(".option").click(function () {
+        $(".option").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
