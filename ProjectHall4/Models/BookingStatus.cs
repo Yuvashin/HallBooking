@@ -16,7 +16,7 @@ namespace ProjectHall4.Models
         public bool Step3 { get; set; }
         public bool Step4 { get; set; }
         public bool Status { get; set; }
-
+        public string ReferenceNumber { get; set; }
 
        private  ApplicationDbContext db= new ApplicationDbContext();
 
@@ -97,9 +97,19 @@ namespace ProjectHall4.Models
                     break;
                     
             }
-
+           
+           
             db.Entry(bookingstatus).State = EntityState.Modified;
             db.SaveChanges();
+        }
+        public int generateRefernceNumber(int BookingID, string Email)
+        {
+            int refnumber= 0;
+            while(refnumber>=0)
+            {
+                refnumber= (BookingID + Email).GetHashCode();
+            }
+            return refnumber; 
         }
     }
 }

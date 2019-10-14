@@ -103,8 +103,10 @@ namespace ProjectHall4.Controllers
         }
         public void AutoCreate()
         {
+            var booking = new BookingStatus();
             var create = new BookingStatus()
             {
+               // ReferenceNumber =( booking.generateRefernceNumber(booking.BookingStatusId,User.Identity.Name)).ToString(),
                 Step1 = false,
                 Step2 = false,
                 Step3 = false,
@@ -112,6 +114,7 @@ namespace ProjectHall4.Controllers
                 Status = false,
                 Email = User.Identity.Name
             };
+            create.ReferenceNumber = (booking.generateRefernceNumber(create.BookingStatusId, User.Identity.Name)).ToString();
             db.BookingStatus.Add(create);
             db.SaveChanges();
         }
