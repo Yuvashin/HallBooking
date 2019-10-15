@@ -24,6 +24,7 @@ namespace ProjectHall4.Models
 
         [Required(ErrorMessage = "Please Enter Number of Guests")]
         [DisplayName("Total Number of Guests")]
+        [Range(1, 5000, ErrorMessage = "Enter number between 1 - 5000")]
         public int TotalNumberOfGuests { get; set; }
 
         [DisplayName("Occasion")]
