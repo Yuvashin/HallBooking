@@ -95,11 +95,23 @@ namespace ProjectHall4.Controllers
             if (booking.bookingCheck(User.Identity.Name))
             {
                 AutoCreate();
+                var last = db.BookingStatus.ToList();
+                createRef(last.LastOrDefault().BookingStatusId);
                 return RedirectToAction("Venue", "Booking2");
             }
 
             TempData["Status"] = "You can only have one active booking open at a time.";
            return View("Index",db.BookingStatus.ToList().Where(x=>x.Email==User.Identity.Name));
+        }
+        public void createRef(int id)
+        {
+            var booking = db.BookingStatus.Find(id);
+            var data = booking.generateRefernceNumber(id, User.Identity.Name).ToString();
+            if (data.Contains('-')) booking.ReferenceNumber = data.Remove('-');
+            else booking.ReferenceNumber = data;
+            db.Entry(booking).State = EntityState.Modified;
+            db.SaveChanges();
+
         }
         public void AutoCreate()
         {
@@ -114,7 +126,7 @@ namespace ProjectHall4.Controllers
                 Status = false,
                 Email = User.Identity.Name
             };
-            create.ReferenceNumber = (booking.generateRefernceNumber(create.BookingStatusId, User.Identity.Name)).ToString();
+         
             db.BookingStatus.Add(create);
             db.SaveChanges();
         }

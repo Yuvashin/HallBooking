@@ -17,6 +17,8 @@ namespace ProjectHall4.Controllers
             return View();
         }
 
+       
+
         public ActionResult _Admin()
         {
             return PartialView();

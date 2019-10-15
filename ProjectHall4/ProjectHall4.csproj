@@ -472,9 +472,12 @@
     <Content Include="Views\BookingStatus\ViewBooking.cshtml" />
     <Content Include="Views\BookingStatus\ViewBookings.cshtml" />
     <Content Include="Views\Home\_Admin.cshtml" />
+    <Content Include="Views\BookingStatus\PaymentSuccess.cshtml" />
+    <Content Include="Views\BookingStatus\PaymentCancelled.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

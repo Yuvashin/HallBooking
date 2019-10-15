@@ -324,12 +324,12 @@
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-danger">    @Html.ActionLink("Choose this package", "CreateDecor", new { id = item.DecorID })</div>
+                                <div class="btn btn-default">    @Html.ActionLink("Choose this package", "CreateDecor", new { id = item.DecorID })</div>
 
                                 @*<a href="/Home/Gallery"><button type="button" class="btn btn-lg explorebtn" style="border-radius: 15px;">EXPLORE</button></a>*@
                             </div>
                             <div class="info">
-                                heading
+                                
                                 <div class="main"> @Html.DisplayFor(modelItem => item.DecorColourOne)</div>
                                 <div class="sub"> R @Html.DisplayFor(modelItem => item.DecorPrice)  </div>
                             
@@ -344,14 +344,14 @@
                         <div class="shadow"></div>
                         <div class="label">
                             <div class="col-xs-12 explore">
-                                <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
+                                <div class="btn btn-default style="border-radius: 15px;">
                                     @Html.ActionLink("Choose this package", "CreateDecor", new { id = item.DecorID })
                                 </div>
 
                                 @*<a ><button type="button" class="btn btn-lg explorebtn" >EXPLORE</button></a>*@
                             </div>
                             <div class="info">
-                                heading
+                                
                                 <div class="main"> @Html.DisplayFor(modelItem => item.DecorColourOne)</div>
                                 <div class="sub"> R @Html.DisplayFor(modelItem => item.DecorPrice)  </div>
                             </div>

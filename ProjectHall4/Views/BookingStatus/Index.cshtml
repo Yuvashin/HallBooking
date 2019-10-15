@@ -3,11 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <style>
+        body {
+           color: #fff !important
+        }
+    </style>
+</head>
 
 <h2>List Of My Bookings</h2>
 
 <p>
-    @Html.ActionLink("Create New Booking", "BookNow")
+    @Html.ActionLink("Add New Booking", "BookNow")
 </p>
 @if (TempData["Status"] != null)
 {

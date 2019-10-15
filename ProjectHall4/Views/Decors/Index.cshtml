@@ -44,6 +44,13 @@
     {
         ViewBag.Title = "Index";
     }
+    <head>
+        <style>
+            body {
+                color: #fff !important
+            }
+        </style>
+    </head>
 
     <h2>List Of Decor Choices</h2>
 
@@ -80,7 +87,7 @@
 
     </table>
 }
-else if(User.IsInRole("User"))
+else if (User.IsInRole("User"))
 {
 
     {
@@ -420,7 +427,7 @@ else if(User.IsInRole("User"))
                                     <div class="btn btn-lg explorebtn" style="border-radius: 15px;">
                                         @Html.ActionLink("Choose this package", "d", new { id = item.DecorID })
                                     </div>
-                                  
+
                                     @*<a ><button type="button" class="btn btn-lg explorebtn" >EXPLORE</button></a>*@
                                 </div>
                                 <div class="info">

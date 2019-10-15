@@ -3,6 +3,13 @@
 @{
     ViewBag.Title = "ViewBookings";
 }
+<head>
+    <style>
+        body {
+            color: #fff !important
+        }
+    </style>
+</head>
 
 <h2>ViewBookings</h2>
 
@@ -47,43 +54,77 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VenueCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CateringType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cateringCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DecorType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.decorCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-      
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateringType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cateringCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecorType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.decorCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+        </tr>
+    }
 
 </table>
+
+
+<script language="JavaScript" type="text/javascript">
+
+function click_14b77ef80a5431dd04e73751b33a7dcf( aform_reference ) {
+            var aform = aform_reference;
+            aform['amount'].value = Math.round( aform['amount'].value*Math.pow( 10,2 ) )/Math.pow( 10,2 );
+            aform['custom_amount'].value = aform['custom_amount'].value.replace( /^\s+|\s+$/g,"" );
+            if( !aform['custom_amount'].value || 0 === aform['custom_amount'].value.length || /^\s*$/.test( aform['custom_amount'].value ) ) {
+                alert ( 'An amount is required' );
+                return false;
+            }
+            aform['amount'].value = Math.round( aform['custom_amount'].value*Math.pow( 10,2 ) )/Math.pow( 10,2 );
+}
+
+</script>
+
+<form action="https://www.payfast.co.za/eng/process" name="form_14b77ef80a5431dd04e73751b33a7dcf" onsubmit="return click_14b77ef80a5431dd04e73751b33a7dcf( this );" method="post">
+    <input type="hidden" name="cmd" value="_paynow">
+    <input type="hidden" name="receiver" value="12993470">
+    <input type="hidden" name="item_name" value="Booking System">
+    <input type="hidden" name="amount" value="10.00">
+    <input type="hidden" name="item_description" value="">
+    <input type="hidden" name="return_url" value="https://www.bankbranchcodes.co.za/standard-bank-bluff-branch-code/">
+    <input type="hidden" name="cancel_url" value="https://search.yahoo.com/search?fr=mcafee&type=E211US1045G10&p=payfast">
+
+    <table>
+        <tr><td><font color="red">*</font>&nbsp;Price</td><td><input type="text" name="custom_amount" class="pricing" value="10.00"></td></tr>
+        <tr><td colspan=2 align=center><input type="image" src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay Now" title="Pay Now with PayFast"></td></tr>
+    </table>
+</form>
+
+
